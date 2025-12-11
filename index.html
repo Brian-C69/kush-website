@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KUSH — Kumpulan Usahawan</title>
+  <meta name="description" content="KUSH (Kumpulan Usahawan) is a free, clarity-first entrepreneur community built around real conversations, practical guidance, and collaborative growth. Facilitated by Rafi Ansari.">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root{
+      --bg:#020713;
+      --bg-soft:#080d1b;
+      --panel:#0b1020;
+      --panel-soft:#12182b;
+      --text:#f4f7ff;
+      --muted:#a2afc7;
+      --accent:#4bf0ff;
+      --accent-2:#8cffc7;
+      --danger:#f97373;
+      --radius:20px;
+      --radius-sm:14px;
+      --shadow:0 18px 40px rgba(0,0,0,.5);
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:var(--bg);
+    }
+    a{color:inherit;text-decoration:none}
+
+    .container{
+      width:100%;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 20px;
+    }
+
+    /* NAV */
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(14px);
+      background:rgba(2,7,19,.78);
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+    .nav-inner{
+      height:68px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      letter-spacing:.4px;
+    }
+    .brand-badge{
+      width:32px;height:32px;border-radius:11px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      box-shadow:0 0 0 3px rgba(75,240,255,.25);
+    }
+    .brand-sub{
+      font-size:11px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.14em;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .nav-links a{
+      font-size:13px;
+      color:var(--muted);
+      padding:7px 11px;
+      border-radius:999px;
+      transition:color .18s ease, background .18s ease, transform .18s ease;
+    }
+    .nav-links a:hover{
+      color:var(--text);
+      background:rgba(255,255,255,.06);
+      transform:translateY(-1px);
+    }
+
+    .nav-cta{
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+    .nav-toggle{
+      display:none;
+      border:none;
+      background:transparent;
+      color:var(--muted);
+      padding:6px 8px;
+      border-radius:999px;
+      cursor:pointer;
+    }
+    .nav-toggle i{
+      font-size:18px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:9px 16px;
+      border-radius:999px;
+      border:1px solid rgba(75,240,255,.6);
+      background:radial-gradient(circle at 0 0,rgba(75,240,255,.25),transparent 55%);
+      color:var(--text);
+      font-size:13px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:var(--shadow);
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      color:#050711;
+      border:none;
+    }
+    .btn-text{
+      border:none;
+      background:transparent;
+      box-shadow:none;
+    }
+    .btn:hover{transform:translateY(-1px)}
+
+    .mobile-menu{
+      display:none;
+      border-bottom:1px solid rgba(255,255,255,.05);
+      background:rgba(2,7,19,.97);
+    }
+    .mobile-menu.open{
+      display:block;
+    }
+    .mobile-menu-inner{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      padding:10px 20px 14px;
+    }
+    .mobile-menu a{
+      display:block;
+      font-size:14px;
+      color:var(--muted);
+      padding:7px 10px;
+      border-radius:999px;
+      transition:color .18s ease, background .18s ease, transform .18s ease;
+    }
+    .mobile-menu a:hover{
+      color:var(--text);
+      background:rgba(255,255,255,.06);
+      transform:translateY(-1px);
+    }
+    .mobile-menu .mobile-cta{
+      margin-top:8px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    @keyframes mobileMenuItemIn{
+      from{opacity:0;transform:translateY(-4px);}
+      to{opacity:1;transform:translateY(0);}
+    }
+    .mobile-menu.open a,
+    .mobile-menu.open .mobile-cta .btn{
+      animation:mobileMenuItemIn .25s ease-out forwards;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(18px);
+      transition:opacity .5s ease-out, transform .5s ease-out;
+    }
+    .reveal-visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .fab-top{
+      position:fixed;
+      right:18px;
+      bottom:70px;
+      z-index:60;
+      display:none;
+      width:42px;
+      height:42px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,.6);
+      background:radial-gradient(circle at 0 0,rgba(148,163,184,.35),transparent 60%);
+      color:#f9fafb;
+      align-items:center;
+      justify-content:center;
+      box-shadow:var(--shadow);
+      cursor:pointer;
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .fab-top i{
+      font-size:18px;
+    }
+    .fab-top:hover{
+      transform:translateY(-2px);
+      box-shadow:0 22px 45px rgba(0,0,0,.7);
+    }
+
+    @media (max-width:880px){
+      .fab-top{
+        display:flex;
+      }
+    }
+
+    @media (min-width:881px){
+      .mobile-menu{
+        display:none !important;
+      }
+    }
+
+    @media (max-width:880px){
+      .nav-links{display:none}
+      .nav-cta{display:none}
+      .nav-toggle{display:inline-flex}
+    }
+
+    /* HERO */
+    main.hero{
+      padding:60px 0 40px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: minmax(0,1.1fr) minmax(0,.95fr);
+      gap:26px;
+      align-items:stretch;
+    }
+    @media (max-width:960px){
+      .hero-grid{grid-template-columns:1fr; padding-top:14px;}
+    }
+    .hero-left{
+      background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.01));
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.06);
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:5px 11px;
+      border-radius:999px;
+      border:1px solid rgba(75,240,255,.45);
+      background:rgba(1,11,35,.7);
+      font-size:11px;
+      font-weight:600;
+      color:#dbeafe;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+    }
+    .pill span.dot{
+      width:8px;height:8px;border-radius:999px;
+      background:radial-gradient(circle at 30% 30%,#fff, #22c55e);
+      box-shadow:0 0 0 3px rgba(34,197,94,.35);
+    }
+
+    h1{
+      margin:16px 0 10px;
+      font-size: clamp(30px, 4vw, 42px);
+      line-height:1.05;
+      letter-spacing:-.04em;
+    }
+    .tagline{
+      font-size:15px;
+      color:var(--muted);
+      margin:0 0 20px;
+      line-height:1.7;
+    }
+    .hero-badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:18px;
+    }
+    .chip{
+      font-size:11px;
+      padding:5px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+    }
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom:18px;
+    }
+    .hero-note{
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .hero-right{
+      border-radius:var(--radius);
+      border:1px solid rgba(0,243,255,.26);
+      background:
+        linear-gradient(140deg,rgba(0,243,255,.12),rgba(0,0,0,.2)),
+        radial-gradient(circle at 0 0,rgba(248,250,252,.08),transparent 55%),
+        #020617;
+      padding:12px;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      justify-content:space-between;
+    }
+    .hero-image{
+      border-radius:var(--radius-sm);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .hero-image img{
+      width:100%;
+      display:block;
+      object-fit:cover;
+    }
+    .hero-caption{
+      font-size:12px;
+      color:var(--muted);
+    }
+    .hero-caption b{color:var(--text)}
+
+    /* SECTIONS GENERAL */
+    section{padding:30px 0}
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size:22px;
+      letter-spacing:-.04em;
+    }
+    .section-head p{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+    }
+    @media (max-width:900px){
+      .grid-3{grid-template-columns:1fr}
+    }
+    .panel{
+      background:linear-gradient(155deg,rgba(255,255,255,.05),rgba(255,255,255,.01));
+      border-radius:var(--radius-sm);
+      border:1px solid rgba(255,255,255,.06);
+      padding:18px;
+    }
+    .panel h3{
+      margin:0 0 8px;
+      font-size:16px;
+    }
+    .panel p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    /* CHAPTERS */
+    .chapter-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px;
+    }
+    .chapter-chip{
+      padding:8px 11px;
+      border-radius:999px;
+      background:rgba(15,23,42,.8);
+      border:1px solid rgba(148,163,184,.4);
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    /* HOW IT WORKS */
+    .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;}
+    @media (max-width:880px){
+      .steps{grid-template-columns:1fr}
+    }
+    .step-num{
+      width:32px;height:32px;border-radius:12px;
+      display:inline-flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      color:#020617;
+      font-size:14px;
+      font-weight:800;
+      margin-bottom:10px;
+    }
+
+    /* COACH */
+    .coach-wrap{
+      display:grid;
+      grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+      gap:16px;
+      align-items:stretch;
+    }
+    @media (max-width:880px){
+      .coach-wrap{grid-template-columns:1fr}
+    }
+    .coach-photo{
+      border-radius:var(--radius-sm);
+      background:radial-gradient(circle at 0 0,rgba(0,243,255,.38),transparent 60%);
+      border:1px solid rgba(0,243,255,.4);
+      padding:16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .coach-photo-inner{
+      max-width:260px;
+      border-radius:var(--radius-sm);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.16);
+    }
+    .coach-photo-inner img{width:100%;display:block;}
+
+    /* EVENTS */
+    .events-grid{
+      display:grid;
+      grid-template-columns: minmax(0,1.1fr) minmax(0,.9fr);
+      gap:16px;
+    }
+    @media (max-width:880px){
+      .events-grid{grid-template-columns:1fr}
+    }
+    .event-tag{
+      font-size:11px;
+      padding:4px 9px;
+      border-radius:999px;
+      background:rgba(56,189,248,.16);
+      border:1px solid rgba(56,189,248,.4);
+      color:#e0f2fe;
+    }
+    .event-item{
+      padding:12px 0;
+      border-bottom:1px solid rgba(148,163,184,.3);
+    }
+    .event-item:last-child{border-bottom:none}
+    .event-item h4{
+      margin:0 0 4px;
+      font-size:14.5px;
+    }
+    .event-meta{
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    /* REGISTER */
+    .register-grid{
+      display:grid;
+      grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+      gap:16px;
+      align-items:stretch;
+    }
+    @media (max-width:880px){
+      .register-grid{grid-template-columns:1fr}
+    }
+    .form-shell{
+      border-radius:var(--radius-sm);
+      border:1px dashed rgba(148,163,184,.7);
+      background:linear-gradient(155deg,rgba(255,255,255,.05),rgba(255,255,255,.01));
+      padding:18px;
+    }
+    .form-shell p{
+      font-size:13px;
+      color:var(--muted);
+      margin:0 0 6px;
+    }
+    .list-check{
+      list-style:none;
+      margin:8px 0 0;
+      padding:0;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .list-check li{
+      margin:4px 0;
+      padding-left:18px;
+      position:relative;
+    }
+    .list-check li::before{
+      content:"✔";
+      position:absolute;
+      left:0;
+      top:0;
+      font-size:11px;
+      color:var(--accent-2);
+    }
+
+    /* FAQ */
+    details{
+      background:linear-gradient(155deg,rgba(255,255,255,.05),rgba(255,255,255,.01));
+      border-radius:var(--radius-sm);
+      border:1px solid rgba(148,163,184,.5);
+      padding:12px 14px;
+      font-size:14px;
+    }
+    details+details{margin-top:8px}
+    summary{
+      cursor:pointer;
+      font-weight:600;
+      list-style:none;
+    }
+    summary::-webkit-details-marker{display:none}
+    details p{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:13.5px;
+    }
+
+    footer{
+      padding:28px 0 40px;
+      font-size:12px;
+      color:var(--muted);
+      border-top:1px solid rgba(148,163,184,.4);
+      background:rgba(2,6,23,.9);
+      margin-top:20px;
+    }
+    .footer-flex{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <div>
+        <div class="brand">
+          <div class="brand-badge"></div>
+          <div>
+            KUSH
+            <div class="brand-sub">KUMPULAN USAHAWAN</div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#benefits">Why Join</a>
+        <a href="#chapters">Chapters</a>
+        <a href="#how">How it Works</a>
+        <a href="#events">Events</a>
+        <a href="#register">Register</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="#events" class="btn btn-text">View Events</a>
+        <a href="#register" class="btn btn-primary">Join KUSH</a>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="container mobile-menu-inner">
+        <div>
+          <a href="#about">About</a>
+          <a href="#benefits">Why Join</a>
+          <a href="#chapters">Chapters</a>
+          <a href="#how">How it Works</a>
+          <a href="#events">Events</a>
+          <a href="#register">Register</a>
+        </div>
+        <div class="mobile-cta">
+          <a href="#events" class="btn btn-text">View Events</a>
+          <a href="#register" class="btn btn-primary">Join KUSH</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main class="hero" id="top">
+    <div class="container hero-grid">
+      <div class="hero-left">
+        <div class="pill">
+          <span class="dot"></span>
+          CLARITY • NETWORK • GROWTH
+        </div>
+        <h1>We build beyond boundaries.</h1>
+        <p class="tagline">
+          KUSH (Kumpulan Usahawan) is a founder-first community facilitated by
+          <b>Rafi Ansari</b>. We focus on clarity, business models, and practical
+          action so entrepreneurs can grow with confidence — without hype or upselling.
+        </p>
+
+        <div class="hero-badges">
+          <div class="chip">Free to join</div>
+          <div class="chip">Business clarity sessions</div>
+          <div class="chip">Real founders, real conversations</div>
+          <div class="chip">Networking • Knowledge • Community</div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#register" class="btn btn-primary">Register as Member</a>
+          <a href="#about" class="btn">Learn more about KUSH</a>
+        </div>
+
+        <div class="hero-note">
+          No membership upsells. Any fees are mainly for venue or food during
+          physical sessions.
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="hero-image">
+          <!-- Replace src with your actual poster path -->
+          <img src="assets/img/kush-hero.jpg" alt="KUSH — Kumpulan Usahawan poster">
+        </div>
+        <div class="hero-caption">
+          <b>KUSH — Kumpulan Usahawan</b><br>
+          We build beyond boundaries through <b>network</b>, <b>knowledge</b> and
+          <b>community</b>. Facilitated by <b>Rafi Ansari</b>.
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>What is KUSH?</h2>
+          <p>A chill-but-serious space for entrepreneurs who want clarity, not noise.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="panel">
+          <h3><i class="fa-solid fa-users" aria-hidden="true"></i> Community-first</h3>
+          <p>
+            KUSH is designed for founders, not followers. Sessions are focused on
+            real business issues, open sharing and practical frameworks.
+          </p>
+        </div>
+        <div class="panel">
+          <h3><i class="fa-solid fa-handshake-simple" aria-hidden="true"></i> No upsell, no glamour</h3>
+          <p>
+            The culture is simple: learn together, grow together. Any payment is
+            mainly for venue and food — not for sales pitches.
+          </p>
+        </div>
+        <div class="panel">
+          <h3><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Clarity over confusion</h3>
+          <p>
+            Many businesses don’t know what went wrong. KUSH helps you understand
+            your business model, strategy and priorities before you hit the wall.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section id="benefits">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Why founders join KUSH</h2>
+          <p>Whether you’re starting up or scaling, clarity changes everything.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="panel">
+          <h3><i class="fa-solid fa-chess-knight" aria-hidden="true"></i> Strategic clarity</h3>
+          <p>
+            Understand what to fix first, which ideas to drop, and how to design
+            a business model that actually supports growth.
+          </p>
+        </div>
+        <div class="panel">
+          <h3><i class="fa-solid fa-people-arrows" aria-hidden="true"></i> Real support network</h3>
+          <p>
+            Connect with founders, operators and builders who are serious about
+            progress — not just content.
+          </p>
+        </div>
+        <div class="panel">
+          <h3><i class="fa-solid fa-seedling" aria-hidden="true"></i> Funding readiness</h3>
+          <p>
+            Learn when and how to approach funders, and structure your brand and
+            operations so investors can take you seriously.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTERS -->
+  <section id="chapters">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Chapters & locations</h2>
+          <p>KUSH is expanding across key hubs so more founders can plug in.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <p style="margin-top:0;margin-bottom:10px;font-size:14px;color:var(--muted);">
+          Sessions are run across different areas depending on coach’s schedule
+          and demand. Watch for updates as we grow.
+        </p>
+        <div class="chapter-tags">
+          <span class="chapter-chip">Johor Bahru</span>
+          <span class="chapter-chip">KL / Bangsar</span>
+          <span class="chapter-chip">Bangi</span>
+          <span class="chapter-chip">Shah Alam</span>
+          <span class="chapter-chip">Ampang</span>
+          <span class="chapter-chip">Melaka / Negeri Sembilan</span>
+          <span class="chapter-chip">Cyberjaya</span>
+          <span class="chapter-chip">More areas coming in 2026</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>How KUSH works</h2>
+          <p>Simple, clear, and designed for busy founders.</p>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="panel">
+          <div class="step-num">1</div>
+          <h3><i class="fa-solid fa-user-plus" aria-hidden="true"></i> Join the list</h3>
+          <p>
+            Register as a member so we know who you are, what you’re building,
+            and which chapter you’re closest to.
+          </p>
+        </div>
+        <div class="panel">
+          <div class="step-num">2</div>
+          <h3><i class="fa-solid fa-mug-hot" aria-hidden="true"></i> Attend sessions</h3>
+          <p>
+            Come for “Chill With Coach” sessions and KUSH events. Bring your
+            questions, cases and challenges.
+          </p>
+        </div>
+        <div class="panel">
+          <div class="step-num">3</div>
+          <h3><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Apply & grow</h3>
+          <p>
+            Use the clarity and frameworks to improve your business. KUSH is
+            here to support, but you lead the execution.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COACH RAFI -->
+  <section id="coach">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Facilitated by Rafi Ansari</h2>
+          <p>Regional business coach focused on real outcomes, not popularity.</p>
+        </div>
+      </div>
+
+      <div class="coach-wrap">
+        <div class="coach-photo">
+          <div class="coach-photo-inner">
+            <!-- You can reuse the same poster or a portrait shot -->
+            <img src="assets/img/Rafi_Ansari.jpg" alt="Coach Rafi Ansari">
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3><i class="fa-solid fa-user-tie" aria-hidden="true"></i> Business coach, not influencer.</h3>
+          <p>
+            Rafi Ansari has coached founders across multiple markets, helping
+            them restructure their brands, clarify strategy and move from crisis
+            to growth. His style is simple: full-focus coaching, honest feedback
+            and clear action plans.
+          </p>
+          <p style="margin-top:10px;">
+            One example: Straits Cattle Trading Co transformed from a crisis
+            situation into four strong brands with positive cash flow and
+            funders lining up — by rethinking their business model and
+            execution.
+          </p>
+          <p style="margin-top:10px;">
+            His role in KUSH is not to make you depend on him, but to help you
+            think clearly as a leader so you can scale your own business.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS & HIGHLIGHTS -->
+  <section id="events">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Events & highlights</h2>
+          <p>Chill sessions, serious conversations.</p>
+        </div>
+        <div>
+          <span class="event-tag">2026 rollout</span>
+        </div>
+      </div>
+
+      <div class="events-grid">
+        <div class="panel">
+          <h3><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> Upcoming sessions</h3>
+          <div class="event-item">
+            <h4>Chill With Coach — Cyberjaya</h4>
+            <div class="event-meta">
+              Date: TBA • Venue: Cafe (TBA) • Format: Small group (max 10 pax)
+            </div>
+          </div>
+          <div class="event-item">
+            <h4>KUSH Launch Gathering</h4>
+            <div class="event-meta">
+              Date: 2026 • Details will be announced to registered members first.
+            </div>
+          </div>
+          <p style="margin-top:10px;font-size:13px;color:var(--muted);">
+            Note: Many sessions are announced a few hours before, depending on
+            coach’s schedule. Make sure you’re registered so you don’t miss it.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h3><i class="fa-solid fa-star" aria-hidden="true"></i> Past highlights</h3>
+          <p style="font-size:14px;color:var(--muted);margin-top:4px;">
+            Some of our most interactive and meaningful conversations have
+            happened in:
+          </p>
+          <ul class="list-check">
+            <li>Shah Alam — highly interactive founder discussions.</li>
+            <li>Cyberjaya — strong turnout and diverse business backgrounds.</li>
+            <li>Bangsar & Ampang — mix of retail, F&B and service founders.</li>
+          </ul>
+          <p style="font-size:13px;color:var(--muted);margin-top:10px;">
+            In future, photo highlights and session recaps can be shared here to
+            help new founders understand what KUSH is about.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTER -->
+  <section id="register">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Register for KUSH</h2>
+          <p>Free membership. Limited slots for some sessions.</p>
+        </div>
+        <div>
+          <a href="#top" class="btn">Back to top</a>
+        </div>
+      </div>
+
+      <div class="register-grid">
+        <div class="panel">
+          <h3><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> What happens when you register?</h3>
+          <ul class="list-check">
+            <li>You’ll be added to the KUSH member list.</li>
+            <li>You’ll receive updates on chapters, events and “Chill With Coach” sessions.</li>
+            <li>You may be grouped based on location and business stage.</li>
+            <li>From time to time, you’ll get templates, notes or resources to support your growth.</li>
+          </ul>
+          <p style="margin-top:12px;font-size:13px;color:var(--muted);">
+            You can opt out anytime. The goal is to keep communication useful,
+            not spammy.
+          </p>
+        </div>
+
+        <div class="form-shell">
+          <p><strong>Registration form</strong></p>
+          <p>
+            Embed your Zoho Form here for smooth onboarding into Zoho CRM.
+          </p>
+
+          <!-- 🔽🔽 ZOHO FORM EMBED GOES HERE 🔽🔽 -->
+          <!--
+          Example:
+          <iframe src="YOUR_ZOHO_FORM_EMBED_URL"
+                  frameborder="0"
+                  style="width:100%;height:480px;border:none;overflow:hidden;"
+                  allowtransparency="true"></iframe>
+          -->
+          <p style="margin-top:10px;font-size:12px;color:var(--muted);">
+            In Zoho Forms: Share → Embed → copy the iframe/script and paste it here.
+          </p>
+          <!-- 🔼🔼 ZOHO FORM EMBED GOES HERE 🔼🔼 -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>FAQ</h2>
+          <p>Quick answers for first-time founders.</p>
+        </div>
+      </div>
+
+      <details>
+        <summary>Is KUSH really free?</summary>
+        <p>
+          Yes. KUSH as a community is free. Any fees are typically for venue or
+          food during physical meetups, not for upsell packages.
+        </p>
+      </details>
+
+      <details>
+        <summary>Is this a coaching sales funnel?</summary>
+        <p>
+          The focus is community and clarity. Some founders may choose to work
+          with Coach Rafi 1-on-1, but KUSH itself is built as a learning and
+          support space, not a hype funnel.
+        </p>
+      </details>
+
+      <details>
+        <summary>Who should join?</summary>
+        <p>
+          Founders and business owners who are serious about growth, open to
+          feedback, and willing to act on clarity — whether you’re in F&B,
+          retail, services or digital.
+        </p>
+      </details>
+
+      <details>
+        <summary>How will I know about upcoming sessions?</summary>
+        <p>
+          Many “Chill With Coach” sessions are announced on short notice via
+          social posts and member channels. Being registered ensures you’re among
+          the first to know.
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-flex">
+      <div>
+        <strong>KUSH — Kumpulan Usahawan</strong><br>
+        We build beyond boundaries through network, knowledge and community.
+      </div>
+      <div>
+        © <span id="year"></span> KUSH. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <a href="#top" class="fab-top" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </a>
+
+  <script>
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (navToggle && mobileMenu) {
+      navToggle.addEventListener('click', function () {
+        const isOpen = mobileMenu.classList.toggle('open');
+        const icon = navToggle.querySelector('i');
+        if (icon) {
+          if (isOpen) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-xmark');
+          } else {
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-xmark');
+          }
+        }
+        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      mobileMenu.addEventListener('click', function (event) {
+        var target = event.target;
+        if (target && target.tagName === 'A') {
+          mobileMenu.classList.remove('open');
+          const icon = navToggle.querySelector('i');
+          if (icon) {
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-xmark');
+          }
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 880 && mobileMenu.classList.contains('open')) {
+          mobileMenu.classList.remove('open');
+          const icon = navToggle.querySelector('i');
+          if (icon) {
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-xmark');
+          }
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    // Scroll reveal animations for cards, text, images
+    (function () {
+      const selectors = [
+        '.hero-left',
+        '.hero-right',
+        '.hero-badges .chip',
+        '.hero-actions .btn',
+        '.section-head',
+        '.panel',
+        '.chapter-chip',
+        '.coach-photo',
+        '.form-shell',
+        '#faq details',
+        '.event-item',
+        '.list-check li',
+        '.hero-image img'
+      ];
+
+      const targets = document.querySelectorAll(selectors.join(','));
+      if (!targets.length) return;
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('reveal-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+
+        targets.forEach(function (el) {
+          el.classList.add('reveal');
+          observer.observe(el);
+        });
+      } else {
+        targets.forEach(function (el) {
+          el.classList.add('reveal-visible');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
