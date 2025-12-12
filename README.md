@@ -1,6 +1,6 @@
 # KUSH — Kumpulan Usahawan Landing Page
 
-## Overview
+## Overviews
 
 ![KUSH landing page preview](assets/img/KUSH_PREVIEW.PNG)
 
