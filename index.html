@@ -66,14 +66,12 @@
     .brand{
       display:flex;
       align-items:center;
-      gap:10px;
-      font-weight:800;
-      letter-spacing:.4px;
+      justify-content:flex-start;
     }
-    .brand-badge{
-      width:32px;height:32px;border-radius:11px;
-      background:linear-gradient(135deg,var(--accent),var(--accent-2));
-      box-shadow:0 0 0 3px rgba(75,240,255,.25);
+    .brand-logo{
+      height:45px;
+      width:auto;   
+      display:block;
     }
     .brand-sub{
       font-size:11px;
@@ -570,26 +568,23 @@
     <div class="container nav-inner">
       <div>
         <div class="brand">
-          <div class="brand-badge"></div>
-          <div>
-            KUSH
-            <div class="brand-sub">KUMPULAN USAHAWAN</div>
-          </div>
+          <img src="assets/img/KUSH_LOGO.png" alt="KUSH — Kumpulan Usahawan" class="brand-logo">
         </div>
       </div>
 
       <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#benefits">Why Join</a>
-        <a href="#chapters">Chapters</a>
-        <a href="#how">How it Works</a>
-        <a href="#events">Events</a>
-        <a href="#register">Register</a>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#benefits" data-i18n="nav.benefits">Why Join</a>
+        <a href="#chapters" data-i18n="nav.chapters">Chapters</a>
+        <a href="#how" data-i18n="nav.how">How it Works</a>
+        <a href="#events" data-i18n="nav.events">Events</a>
+        <a href="#register" data-i18n="nav.register">Register</a>
       </nav>
 
       <div class="nav-cta">
-        <a href="#events" class="btn btn-text">View Events</a>
-        <a href="#register" class="btn btn-primary">Join KUSH</a>
+        <a href="#events" class="btn btn-text" data-i18n="nav.viewEvents">View Events</a>
+        <a href="#register" class="btn btn-primary" data-i18n="nav.joinKush">Join KUSH</a>
+        <button class="btn btn-text" type="button" data-lang-toggle="true">BM</button>
       </div>
 
       <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -600,16 +595,17 @@
     <div class="mobile-menu" id="mobile-menu">
       <div class="container mobile-menu-inner">
         <div>
-          <a href="#about">About</a>
-          <a href="#benefits">Why Join</a>
-          <a href="#chapters">Chapters</a>
-          <a href="#how">How it Works</a>
-          <a href="#events">Events</a>
-          <a href="#register">Register</a>
+          <a href="#about" data-i18n="nav.about">About</a>
+          <a href="#benefits" data-i18n="nav.benefits">Why Join</a>
+          <a href="#chapters" data-i18n="nav.chapters">Chapters</a>
+          <a href="#how" data-i18n="nav.how">How it Works</a>
+          <a href="#events" data-i18n="nav.events">Events</a>
+          <a href="#register" data-i18n="nav.register">Register</a>
         </div>
         <div class="mobile-cta">
-          <a href="#events" class="btn btn-text">View Events</a>
-          <a href="#register" class="btn btn-primary">Join KUSH</a>
+          <a href="#events" class="btn btn-text" data-i18n="nav.viewEvents">View Events</a>
+          <a href="#register" class="btn btn-primary" data-i18n="nav.joinKush">Join KUSH</a>
+          <button class="btn btn-text" type="button" data-lang-toggle="true">BM</button>
         </div>
       </div>
     </div>
@@ -619,30 +615,30 @@
   <main class="hero" id="top">
     <div class="container hero-grid">
       <div class="hero-left">
-        <div class="pill">
+        <div class="pill" data-i18n="hero.pill">
           <span class="dot"></span>
           CLARITY • NETWORK • GROWTH
         </div>
-        <h1>We build beyond boundaries.</h1>
-        <p class="tagline">
+        <h1 data-i18n="hero.title">We build beyond boundaries.</h1>
+        <p class="tagline" data-i18n="hero.tagline">
           KUSH (Kumpulan Usahawan) is a founder-first community facilitated by
           <b>Rafi Ansari</b>. We focus on clarity, business models, and practical
           action so entrepreneurs can grow with confidence — without hype or upselling.
         </p>
 
         <div class="hero-badges">
-          <div class="chip">Free to join</div>
-          <div class="chip">Business clarity sessions</div>
-          <div class="chip">Real founders, real conversations</div>
+          <div class="chip" data-i18n="hero.badge1">Free to join</div>
+          <div class="chip" data-i18n="hero.badge2">Business clarity sessions</div>
+          <div class="chip" data-i18n="hero.badge3">Real founders, real conversations</div>
           <div class="chip">Networking • Knowledge • Community</div>
         </div>
 
         <div class="hero-actions">
-          <a href="#register" class="btn btn-primary">Register as Member</a>
-          <a href="#about" class="btn">Learn more about KUSH</a>
+          <a href="#register" class="btn btn-primary" data-i18n="hero.primaryCta">Register as Member</a>
+          <a href="#about" class="btn" data-i18n="hero.secondaryCta">Learn more about KUSH</a>
         </div>
 
-        <div class="hero-note">
+        <div class="hero-note" data-i18n="hero.note">
           No membership upsells. Any fees are mainly for venue or food during
           physical sessions.
         </div>
@@ -667,28 +663,28 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2>What is KUSH?</h2>
-          <p>A chill-but-serious space for entrepreneurs who want clarity, not noise.</p>
+          <h2 data-i18n="about.heading">What is KUSH?</h2>
+          <p data-i18n="about.subheading">A chill-but-serious space for entrepreneurs who want clarity, not noise.</p>
         </div>
       </div>
 
       <div class="grid-3">
         <div class="panel">
-          <h3><i class="fa-solid fa-users" aria-hidden="true"></i> Community-first</h3>
+          <h3 data-i18n="about.card1.title"><i class="fa-solid fa-users" aria-hidden="true"></i> Community-first</h3>
           <p>
             KUSH is designed for founders, not followers. Sessions are focused on
             real business issues, open sharing and practical frameworks.
           </p>
         </div>
         <div class="panel">
-          <h3><i class="fa-solid fa-handshake-simple" aria-hidden="true"></i> No upsell, no glamour</h3>
+          <h3 data-i18n="about.card2.title"><i class="fa-solid fa-handshake-simple" aria-hidden="true"></i> No upsell, no glamour</h3>
           <p>
             The culture is simple: learn together, grow together. Any payment is
             mainly for venue and food — not for sales pitches.
           </p>
         </div>
         <div class="panel">
-          <h3><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Clarity over confusion</h3>
+          <h3 data-i18n="about.card3.title"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Clarity over confusion</h3>
           <p>
             Many businesses don’t know what went wrong. KUSH helps you understand
             your business model, strategy and priorities before you hit the wall.
@@ -1013,8 +1009,235 @@
   </a>
 
   <script>
-    // Current year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Language toggle
+    const translations = {
+      en: {
+        __title: 'KUSH — Kumpulan Usahawan',
+        '.brand-sub': 'KUMPULAN USAHAWAN',
+        '.nav-links a[href="#about"]': 'About',
+        '.nav-links a[href="#benefits"]': 'Why Join',
+        '.nav-links a[href="#chapters"]': 'Chapters',
+        '.nav-links a[href="#how"]': 'How it Works',
+        '.nav-links a[href="#events"]': 'Events',
+        '.nav-links a[href="#register"]': 'Register',
+        '.mobile-menu a[href="#about"]': 'About',
+        '.mobile-menu a[href="#benefits"]': 'Why Join',
+        '.mobile-menu a[href="#chapters"]': 'Chapters',
+        '.mobile-menu a[href="#how"]': 'How it Works',
+        '.mobile-menu a[href="#events"]': 'Events',
+        '.mobile-menu a[href="#register"]': 'Register',
+        '.nav-cta .btn.btn-text[data-i18n="nav.viewEvents"]': 'View Events',
+        '.nav-cta .btn.btn-primary[data-i18n="nav.joinKush"]': 'Join KUSH',
+        '.mobile-cta .btn.btn-text[data-i18n="nav.viewEvents"]': 'View Events',
+        '.mobile-cta .btn.btn-primary[data-i18n="nav.joinKush"]': 'Join KUSH',
+        '.pill': 'CLARITY · NETWORK · GROWTH',
+        '.hero-left h1': 'We build beyond boundaries.',
+        '.hero-left .tagline': 'KUSH (Kumpulan Usahawan) is a founder-first community facilitated by <b>Rafi Ansari</b>. We focus on clarity, business models, and practical action so entrepreneurs can grow with confidence — without hype or upselling.',
+        '.hero-badges .chip:nth-child(1)': 'Free to join',
+        '.hero-badges .chip:nth-child(2)': 'Business clarity sessions',
+        '.hero-badges .chip:nth-child(3)': 'Real founders, real conversations',
+        '.hero-badges .chip:nth-child(4)': 'Networking · Knowledge · Community',
+        '.hero-actions .btn.btn-primary': 'Register as Member',
+        '.hero-actions .btn.btn-primary + .btn': 'Learn more about KUSH',
+        '.hero-note': 'No membership upsells. Any fees are mainly for venue or food during physical sessions.',
+        '.hero-caption': '<b>KUSH — Kumpulan Usahawan</b><br>We build beyond boundaries through <b>network</b>, <b>knowledge</b> and <b>community</b>. Facilitated by <b>Rafi Ansari</b>.',
+        '#about .section-head h2': 'What is KUSH?',
+        '#about .section-head p': 'A chill-but-serious space for entrepreneurs who want clarity, not noise.',
+        '#about .panel:nth-of-type(1) h3': '<i class="fa-solid fa-users" aria-hidden="true"></i> Community-first',
+        '#about .panel:nth-of-type(1) p': 'KUSH is designed for founders, not followers. Sessions are focused on real business issues, open sharing and practical frameworks.',
+        '#about .panel:nth-of-type(2) h3': '<i class="fa-solid fa-handshake-simple" aria-hidden="true"></i> No upsell, no glamour',
+        '#about .panel:nth-of-type(2) p': 'The culture is simple: learn together, grow together. Any payment is mainly for venue and food — not for sales pitches.',
+        '#about .panel:nth-of-type(3) h3': '<i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Clarity over confusion',
+        '#about .panel:nth-of-type(3) p': 'Many businesses don\'t know what went wrong. KUSH helps you understand your business model, strategy and priorities before you hit the wall.',
+        '#benefits .section-head h2': 'Why founders join KUSH',
+        '#benefits .section-head p': 'Whether you\'re starting up or scaling, clarity changes everything.',
+        '#benefits .panel:nth-of-type(1) h3': '<i class="fa-solid fa-chess-knight" aria-hidden="true"></i> Strategic clarity',
+        '#benefits .panel:nth-of-type(1) p': 'Understand what to fix first, which ideas to drop, and how to design a business model that actually supports growth.',
+        '#benefits .panel:nth-of-type(2) h3': '<i class="fa-solid fa-people-arrows" aria-hidden="true"></i> Real support network',
+        '#benefits .panel:nth-of-type(2) p': 'Connect with founders, operators and builders who are serious about progress — not just content.',
+        '#benefits .panel:nth-of-type(3) h3': '<i class="fa-solid fa-seedling" aria-hidden="true"></i> Funding readiness',
+        '#benefits .panel:nth-of-type(3) p': 'Learn when and how to approach funders, and structure your brand and operations so investors can take you seriously.',
+        '#chapters .section-head h2': 'Chapters & locations',
+        '#chapters .section-head p': 'KUSH is expanding across key hubs so more founders can plug in.',
+        '#chapters .panel p': 'Sessions are run across different areas depending on coach\'s schedule and demand. Watch for updates as we grow.',
+        '#how .section-head h2': 'How KUSH works',
+        '#how .section-head p': 'Simple, clear, and designed for busy founders.',
+        '#how .steps .panel:nth-of-type(1) h3': '<i class="fa-solid fa-user-plus" aria-hidden="true"></i> Join the list',
+        '#how .steps .panel:nth-of-type(1) p': 'Register as a member so we know who you are, what you\'re building, and which chapter you\'re closest to.',
+        '#how .steps .panel:nth-of-type(2) h3': '<i class="fa-solid fa-mug-hot" aria-hidden="true"></i> Attend sessions',
+        '#how .steps .panel:nth-of-type(2) p': 'Come for “Chill With Coach” sessions and KUSH events. Bring your questions, cases and challenges.',
+        '#how .steps .panel:nth-of-type(3) h3': '<i class="fa-solid fa-chart-line" aria-hidden="true"></i> Apply & grow',
+        '#how .steps .panel:nth-of-type(3) p': 'Use the clarity and frameworks to improve your business. KUSH is here to support, but you lead the execution.',
+        '#coach .section-head h2': 'Facilitated by Rafi Ansari',
+        '#coach .section-head p': 'Regional business coach focused on real outcomes, not popularity.',
+        '#coach .panel h3': '<i class="fa-solid fa-user-tie" aria-hidden="true"></i> Business coach, not influencer.',
+        '#coach .panel p:nth-of-type(1)': 'Rafi Ansari has coached founders across multiple markets, helping them restructure their brands, clarify strategy and move from crisis to growth. His style is simple: full-focus coaching, honest feedback and clear action plans.',
+        '#coach .panel p:nth-of-type(2)': 'One example: Straits Cattle Trading Co transformed from a crisis situation into four strong brands with positive cash flow and funders lining up — by rethinking their business model and execution.',
+        '#coach .panel p:nth-of-type(3)': 'His role in KUSH is not to make you depend on him, but to help you think clearly as a leader so you can scale your own business.',
+        '#events .section-head h2': 'Events & highlights',
+        '#events .section-head p': 'Chill sessions, serious conversations.',
+        '#events .events-grid .panel:nth-of-type(1) h3': '<i class="fa-solid fa-calendar-days" aria-hidden="true"></i> Upcoming sessions',
+        '#events .events-grid .panel:nth-of-type(1) p': 'Note: Many sessions are announced a few hours before, depending on the coach\'s schedule. Make sure you\'re registered so you don\'t miss it.',
+        '#events .events-grid .panel:nth-of-type(2) h3': '<i class="fa-solid fa-star" aria-hidden="true"></i> Past highlights',
+        '#events .events-grid .panel:nth-of-type(2) p:nth-of-type(1)': 'Some of our most interactive and meaningful conversations have happened in:',
+        '#events .events-grid .panel:nth-of-type(2) ul li:nth-of-type(1)': 'Shah Alam — highly interactive founder discussions.',
+        '#events .events-grid .panel:nth-of-type(2) ul li:nth-of-type(2)': 'Cyberjaya — strong turnout and diverse business backgrounds.',
+        '#events .events-grid .panel:nth-of-type(2) ul li:nth-of-type(3)': 'Bangsar & Ampang — mix of retail, F&B and service founders.',
+        '#events .events-grid .panel:nth-of-type(2) p:nth-of-type(2)': 'In future, photo highlights and session recaps can be shared here to help new founders understand what KUSH is about.',
+        '#register .section-head h2': 'Register for KUSH',
+        '#register .section-head p': 'Free membership. Limited slots for some sessions.',
+        '#register .register-grid .panel h3': '<i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> What happens when you register?',
+        '#register .register-grid .panel ul li:nth-of-type(1)': 'You\'ll be added to the KUSH member list.',
+        '#register .register-grid .panel ul li:nth-of-type(2)': 'You\'ll receive updates on chapters, events and “Chill With Coach” sessions.',
+        '#register .register-grid .panel ul li:nth-of-type(3)': 'You may be grouped based on location and business stage.',
+        '#register .register-grid .panel ul li:nth-of-type(4)': 'From time to time, you\'ll get templates, notes or resources to support your growth.',
+        '#register .register-grid .panel p': 'You can opt out anytime. The goal is to keep communication useful, not spammy.',
+        '#faq .section-head h2': 'FAQ',
+        '#faq .section-head p': 'Quick answers for first-time founders.',
+        '#faq details:nth-of-type(1) > summary': 'Is KUSH really free?',
+        '#faq details:nth-of-type(2) > summary': 'Is this a coaching sales funnel?',
+        '#faq details:nth-of-type(3) > summary': 'Who should join?',
+        '#faq details:nth-of-type(4) > summary': 'How will I know about upcoming sessions?',
+        'footer .footer-flex div:first-child': '<strong>KUSH — Kumpulan Usahawan</strong><br>We build beyond boundaries through network, knowledge and community.'
+      },
+      ms: {
+        __title: 'KUSH — Kumpulan Usahawan',
+        '.brand-sub': 'KUMPULAN USAHAWAN',
+        '.nav-links a[href="#about"]': 'Tentang',
+        '.nav-links a[href="#benefits"]': 'Sertai',
+        '.nav-links a[href="#chapters"]': 'Cawangan',
+        '.nav-links a[href="#how"]': 'Cara Berfungsi',
+        '.nav-links a[href="#events"]': 'Acara',
+        '.nav-links a[href="#register"]': 'Daftar',
+        '.mobile-menu a[href="#about"]': 'Tentang',
+        '.mobile-menu a[href="#benefits"]': 'Kenapa Sertai',
+        '.mobile-menu a[href="#chapters"]': 'Cawangan',
+        '.mobile-menu a[href="#how"]': 'Cara KUSH Berfungsi',
+        '.mobile-menu a[href="#events"]': 'Acara',
+        '.mobile-menu a[href="#register"]': 'Daftar',
+        '.nav-cta .btn.btn-text[data-i18n="nav.viewEvents"]': 'Lihat Acara',
+        '.nav-cta .btn.btn-primary[data-i18n="nav.joinKush"]': 'Sertai KUSH',
+        '.mobile-cta .btn.btn-text[data-i18n="nav.viewEvents"]': 'Lihat Acara',
+        '.mobile-cta .btn.btn-primary[data-i18n="nav.joinKush"]': 'Sertai KUSH',
+        '.pill': 'Kejelasan · Rangkaian · Pertumbuhan',
+        '.hero-left h1': 'Kami membina tanpa batasan.',
+        '.hero-left .tagline': 'KUSH (Kumpulan Usahawan) ialah komuniti pengasas yang dibimbing oleh <b>Rafi Ansari</b>. Fokus kami ialah kejelasan, model bisnes dan tindakan praktikal supaya usahawan boleh berkembang dengan yakin — tanpa hype atau upsell.',
+        '.hero-badges .chip:nth-child(1)': 'Percuma untuk sertai',
+        '.hero-badges .chip:nth-child(2)': 'Sesi kejelasan bisnes',
+        '.hero-badges .chip:nth-child(3)': 'Pengasas sebenar, perbualan sebenar',
+        '.hero-badges .chip:nth-child(4)': 'Rangkaian · Ilmu · Komuniti',
+        '.hero-actions .btn.btn-primary': 'Daftar sebagai Ahli',
+        '.hero-actions .btn.btn-primary + .btn': 'Kenali KUSH',
+        '.hero-note': 'Tiada upsell keahlian. Sebarang bayaran biasanya untuk lokasi atau makanan semasa sesi fizikal.',
+        '.hero-caption': '<b>KUSH — Kumpulan Usahawan</b><br>Kami membina tanpa batasan melalui <b>rangkaian</b>, <b>ilmu</b> dan <b>komuniti</b>. Difasilitasi oleh <b>Rafi Ansari</b>.',
+        '#about .section-head h2': 'Apa itu KUSH?',
+        '#about .section-head p': 'Ruang santai tetapi serius untuk usahawan yang mahukan kejelasan, bukan bunyi bising.',
+        '#about .panel:nth-of-type(1) h3': '<i class="fa-solid fa-users" aria-hidden="true"></i> Komuniti didahulukan',
+        '#about .panel:nth-of-type(1) p': 'KUSH direka untuk pengasas, bukan pengikut. Sesi fokus pada isu bisnes sebenar, perkongsian terbuka dan rangka kerja praktikal.',
+        '#about .panel:nth-of-type(2) h3': '<i class="fa-solid fa-handshake-simple" aria-hidden="true"></i> Tiada upsell, tiada glamor',
+        '#about .panel:nth-of-type(2) p': 'Budaya di sini ringkas: belajar bersama, berkembang bersama. Sebarang bayaran biasanya untuk lokasi dan makanan — bukan untuk jualan pakej.',
+        '#about .panel:nth-of-type(3) h3': '<i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Kejelasan, bukan kekeliruan',
+        '#about .panel:nth-of-type(3) p': 'Ramai bisnes tak pasti apa yang silap. KUSH bantu anda faham model bisnes, strategi dan keutamaan sebelum anda terhentak dinding.',
+        '#benefits .section-head h2': 'Kenapa pengasas sertai KUSH',
+        '#benefits .section-head p': 'Sama ada anda baru mula atau sedang berkembang, kejelasan mengubah segalanya.',
+        '#benefits .panel:nth-of-type(1) h3': '<i class="fa-solid fa-chess-knight" aria-hidden="true"></i> Kejelasan strategi',
+        '#benefits .panel:nth-of-type(1) p': 'Fahami apa yang perlu dibetulkan dahulu, idea mana perlu dilepaskan dan bagaimana mereka bentuk model bisnes yang menyokong pertumbuhan.',
+        '#benefits .panel:nth-of-type(2) h3': '<i class="fa-solid fa-people-arrows" aria-hidden="true"></i> Rangkaian sokongan sebenar',
+        '#benefits .panel:nth-of-type(2) p': 'Berhubung dengan pengasas, operator dan pembina yang serius tentang kemajuan — bukan sekadar kandungan.',
+        '#benefits .panel:nth-of-type(3) h3': '<i class="fa-solid fa-seedling" aria-hidden="true"></i> Kesiapsiagaan pembiayaan',
+        '#benefits .panel:nth-of-type(3) p': 'Belajar bila dan bagaimana menghampiri pemberi dana, dan susun jenama serta operasi supaya pelabur boleh melihat potensi anda.',
+        '#chapters .section-head h2': 'Cawangan & lokasi',
+        '#chapters .section-head p': 'KUSH sedang berkembang di hub utama supaya lebih ramai usahawan boleh menyertai.',
+        '#chapters .panel p': 'Sesi dijalankan di pelbagai kawasan bergantung pada jadual dan permintaan. Ikuti perkembangan untuk lokasi baharu.',
+        '#how .section-head h2': 'Bagaimana KUSH berfungsi',
+        '#how .section-head p': 'Ringkas, jelas dan direka untuk usahawan yang sibuk.',
+        '#how .steps .panel:nth-of-type(1) h3': '<i class="fa-solid fa-user-plus" aria-hidden="true"></i> Masuk senarai',
+        '#how .steps .panel:nth-of-type(1) p': 'Daftar sebagai ahli supaya kami tahu siapa anda, apa yang anda bina dan cawangan mana paling dekat dengan anda.',
+        '#how .steps .panel:nth-of-type(2) h3': '<i class="fa-solid fa-mug-hot" aria-hidden="true"></i> Hadiri sesi',
+        '#how .steps .panel:nth-of-type(2) p': 'Datang ke sesi “Chill With Coach” dan acara KUSH. Bawa soalan, kes dan cabaran anda.',
+        '#how .steps .panel:nth-of-type(3) h3': '<i class="fa-solid fa-chart-line" aria-hidden="true"></i> Guna & berkembang',
+        '#how .steps .panel:nth-of-type(3) p': 'Guna kejelasan dan rangka kerja untuk perbaiki bisnes anda. KUSH menyokong, tetapi anda memimpin pelaksanaan.',
+        '#coach .section-head h2': 'Difasilitasi oleh Rafi Ansari',
+        '#coach .section-head p': 'Jurulatih bisnes serantau yang fokus pada hasil sebenar, bukan populariti.',
+        '#coach .panel h3': '<i class="fa-solid fa-user-tie" aria-hidden="true"></i> Jurulatih bisnes, bukan influencer.',
+        '#coach .panel p:nth-of-type(1)': 'Rafi Ansari telah membimbing pengasas di pelbagai pasaran, membantu mereka menyusun semula jenama, jelaskan strategi dan bergerak dari krisis ke pertumbuhan. Gayanya ringkas: fokus penuh, maklum balas jujur dan pelan tindakan yang jelas.',
+        '#coach .panel p:nth-of-type(2)': 'Contoh: Straits Cattle Trading Co berubah daripada situasi krisis kepada empat jenama kukuh dengan aliran tunai positif dan pelabur beratur — hasil pemikiran semula model dan pelaksanaan bisnes.',
+        '#coach .panel p:nth-of-type(3)': 'Peranan beliau di KUSH bukan untuk membuat anda bergantung kepadanya, tetapi membantu anda berfikir jelas sebagai pemimpin supaya anda boleh skala bisnes sendiri.',
+        '#events .section-head h2': 'Acara & sorotan',
+        '#events .section-head p': 'Sesi santai, perbualan serius.',
+        '#events .events-grid .panel:nth-of-type(1) h3': '<i class="fa-solid fa-calendar-days" aria-hidden="true"></i> Sesi akan datang',
+        '#events .events-grid .panel:nth-of-type(1) p': 'Nota: Banyak sesi diumumkan beberapa jam sebelum bermula, bergantung pada jadual coach. Pastikan anda berdaftar supaya tak terlepas.',
+        '#events .events-grid .panel:nth-of-type(2) h3': '<i class="fa-solid fa-star" aria-hidden="true"></i> Sorotan lepas',
+        '#events .events-grid .panel:nth-of-type(2) p:nth-of-type(1)': 'Sebahagian perbualan paling interaktif dan bermakna kami berlaku di:',
+        '#events .events-grid .panel:nth-of-type(2) ul li:nth-of-type(1)': 'Shah Alam — perbincangan pengasas yang sangat interaktif.',
+        '#events .events-grid .panel:nth-of-type(2) ul li:nth-of-type(2)': 'Cyberjaya — kehadiran kuat dan latar bisnes yang pelbagai.',
+        '#events .events-grid .panel:nth-of-type(2) ul li:nth-of-type(3)': 'Bangsar & Ampang — gabungan pengasas runcit, F&B dan servis.',
+        '#events .events-grid .panel:nth-of-type(2) p:nth-of-type(2)': 'Pada masa hadapan, foto dan ringkasan sesi boleh dikongsi di sini untuk bantu pengasas baharu faham apa itu KUSH.',
+        '#register .section-head h2': 'Daftar untuk KUSH',
+        '#register .section-head p': 'Keahlian percuma. Slot terhad untuk sesetengah sesi.',
+        '#register .register-grid .panel h3': '<i class="fa-solid fa-clipboard-list" aria-hidden="true"></i> Apa yang berlaku bila anda daftar?',
+        '#register .register-grid .panel ul li:nth-of-type(1)': 'Nama anda akan dimasukkan ke dalam senarai ahli KUSH.',
+        '#register .register-grid .panel ul li:nth-of-type(2)': 'Anda akan menerima kemas kini tentang cawangan, acara dan sesi “Chill With Coach”.',
+        '#register .register-grid .panel ul li:nth-of-type(3)': 'Anda mungkin dikumpulkan mengikut lokasi dan tahap bisnes.',
+        '#register .register-grid .panel ul li:nth-of-type(4)': 'Dari semasa ke semasa, anda akan menerima template, nota atau sumber untuk menyokong pertumbuhan anda.',
+        '#register .register-grid .panel p': 'Anda boleh keluar bila-bila masa. Matlamat kami ialah komunikasi yang berguna, bukan spam.',
+        '#faq .section-head h2': 'Soalan Lazim',
+        '#faq .section-head p': 'Jawapan ringkas untuk usahawan kali pertama.',
+        '#faq details:nth-of-type(1) > summary': 'Adakah KUSH benar-benar percuma?',
+        '#faq details:nth-of-type(2) > summary': 'Adakah ini corong jualan coaching?',
+        '#faq details:nth-of-type(3) > summary': 'Siapa yang patut sertai?',
+        '#faq details:nth-of-type(4) > summary': 'Bagaimana saya tahu tentang sesi akan datang?',
+        'footer .footer-flex div:first-child': '<strong>KUSH — Kumpulan Usahawan</strong><br>Kami membina tanpa batasan melalui rangkaian, ilmu dan komuniti.'
+      }
+    };
+
+    let currentLang = 'en';
+
+    function applyTranslations(lang) {
+      currentLang = lang === 'ms' ? 'ms' : 'en';
+
+      if (translations[currentLang].__title) {
+        document.title = translations[currentLang].__title;
+      }
+
+      const dict = translations[currentLang];
+      Object.keys(dict).forEach(function (selector) {
+        if (selector.indexOf('__') === 0) return;
+        const nodes = document.querySelectorAll(selector);
+        if (!nodes.length) return;
+        nodes.forEach(function (el) {
+          el.innerHTML = dict[selector];
+        });
+      });
+
+      var footerRights = document.querySelector('footer .footer-flex div:last-child');
+      if (footerRights) {
+        var year = new Date().getFullYear();
+        var yearSpan = '<span id="year">' + year + '</span>';
+        if (currentLang === 'en') {
+          footerRights.innerHTML = '© ' + yearSpan + ' KUSH. All rights reserved.';
+        } else {
+          footerRights.innerHTML = '© ' + yearSpan + ' KUSH. Hak cipta terpelihara.';
+        }
+      }
+
+      document.querySelectorAll('[data-lang-toggle]').forEach(function (btn) {
+        btn.textContent = currentLang === 'en' ? 'BM' : 'EN';
+      });
+
+      document.documentElement.setAttribute('lang', currentLang === 'ms' ? 'ms' : 'en');
+    }
+
+    const langToggles = document.querySelectorAll('[data-lang-toggle]');
+    if (langToggles.length) {
+      langToggles.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          applyTranslations(currentLang === 'en' ? 'ms' : 'en');
+        });
+      });
+    }
+
+    applyTranslations('en');
 
     // Mobile nav toggle
     const navToggle = document.getElementById('nav-toggle');
