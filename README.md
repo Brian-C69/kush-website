@@ -2,6 +2,8 @@
 
 ## Overview
 
+![KUSH landing page preview](assets/img/KUSH_PREVIEW.PNG)
+
 This repo contains the single–page marketing site for **KUSH (Kumpulan Usahawan)**, a founder‑first entrepreneur community facilitated by Rafi Ansari. The page is designed to clearly explain what KUSH is, who it’s for, how it works, and how to join – with a strong focus on readability, mobile UX, and low‑friction registration.
 
 There is no build step or framework; the site is a **static HTML/CSS/JS** page intended to be dropped into any PHP/XAMPP or generic web hosting environment. All styling and behavior live in `index.html`, with a small image folder under `assets/`.
