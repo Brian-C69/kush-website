@@ -35,11 +35,17 @@
 </IfModule>
 
 <IfModule mod_brotli.c>
-  AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css application/javascript application/json image/svg+xml
+  # Prefer server-level config for Brotli; keep page-level config simple.
 </IfModule>
 
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json image/svg+xml
+  <IfModule mod_headers.c>
+    Header append Vary Accept-Encoding
+  </IfModule>
+
+  <FilesMatch "\.(html|css|js|json|svg)$">
+    SetOutputFilter DEFLATE
+  </FilesMatch>
+
   DeflateCompressionLevel 6
 </IfModule>
-
